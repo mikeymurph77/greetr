@@ -8,6 +8,12 @@
 </head>
 <body>
 
+<% if signed_in? %>
+	<%= link_to "Sign Out", :session, method: :delete %>
+<% end %>
+
+<%= render "flash_msg" %>
+
 <%= yield %>
 
 </body>
