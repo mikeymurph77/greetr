@@ -1,0 +1,22 @@
+<%= form_for :greeting do |form| %> 
+	<div>
+		<%= form.label :body, "Write your greeting:" %>
+		<%= form.text_field :body %>
+	</div>
+
+	<div>
+		<%= form.label :reciever, "Reciever:" %>
+		<%= form.collection_select :reciever_id, User.all, :id, :username  %>
+	</div>
+
+	<div>
+		<%= form.submit "Send Greeting" %>
+	</div>
+<% end %> 
+
+
+<h2>Greetings to you!</h2>
+
+<ul>
+  <%= render "greetings", greetings: @greetings %>
+</ul>

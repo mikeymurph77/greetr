@@ -9,7 +9,7 @@
 <body>
 
 <% if signed_in? %>
-	<%= link_to "Sign Out", :session, method: :delete %>
+	<p>You are signed in as <%= current_user.username %>... <%= link_to "Sign Out", :session, method: :delete %></p>
 <% end %>
 
 <%= render "flash_msg" %>
