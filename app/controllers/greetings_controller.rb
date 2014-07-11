@@ -6,6 +6,8 @@ class GreetingsController < ApplicationController
 
 	def create
 		greeting = current_user.greetings.create(greeting_params)
+		greeting_html_string = render_to_string(greeting)
+		Pusher.trigger(greeting.reciever_id, 'greeting-event', message: greeting_html_string)
 
 		redirect_to :greetings
 		

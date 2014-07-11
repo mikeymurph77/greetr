@@ -1,3 +1,12 @@
+<script>
+		var pusher = new Pusher("<%= ENV.fetch('PUSHER_KEY') %>");
+  	var channel = pusher.subscribe("<%= current_user.id %>");
+
+  	channel.bind('greeting-event', function(data) {
+  		$("#greetings").prepend(data.message);
+		});
+</script>
+
 <%= form_for :greeting do |form| %> 
 	<div>
 		<%= form.label :body, "Write your greeting:" %>
@@ -17,6 +26,6 @@
 
 <h2>Greetings to you!</h2>
 
-<ul>
-  <%= render "greetings", greetings: @greetings %>
+<ul id="greetings">
+  <%= render @greetings %>
 </ul>
