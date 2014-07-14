@@ -1,31 +1,27 @@
 <script>
-		var pusher = new Pusher("<%= ENV.fetch('PUSHER_KEY') %>");
-  	var channel = pusher.subscribe("<%= current_user.id %>");
+  var pusher = new Pusher("<%= ENV.fetch("PUSHER_KEY") %>");
+  var channel = pusher.subscribe("<%= current_user.id %>");
+  channel.bind('greeting-event', function(data) {
+    $("#greetings").prepend(data.message);
 
-  	channel.bind('greeting-event', function(data) {
-  		$("#greetings").prepend(data.message);
-		});
+  });
 </script>
 
-<%= form_for :greeting do |form| %> 
-	<div>
-		<%= form.label :body, "Write your greeting:" %>
-		<%= form.text_field :body %>
-	</div>
+<%=form_for :greeting, html:{id: "greeting_form"} do |form| %>
+  <div>
+    <%= form.label :body, "Write your greeting" %>
+    <%= form.text_field :body %>
+    </div>
+    <div>
+      Send Greeting to: 
+      <%= form.collection_select :reciever_id, User.all, :id, :username %>
+  </div>
+  <div>
+    <%= form.submit "Send Greeting" %>
+  </div>
+<%end%>
 
-	<div>
-		<%= form.label :reciever, "Reciever:" %>
-		<%= form.collection_select :reciever_id, User.all, :id, :username  %>
-	</div>
-
-	<div>
-		<%= form.submit "Send Greeting" %>
-	</div>
-<% end %> 
-
-
-<h2>Greetings to you!</h2>
-
+<h2>Greetings to you </h2>
 <ul id="greetings">
   <%= render @greetings %>
 </ul>
