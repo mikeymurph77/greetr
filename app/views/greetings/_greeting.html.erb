@@ -1,7 +1,7 @@
-
+<div class="greetings">
   <li>
-    <b><%=User.find_by(id: greeting.user_id).username %></b>: 
-    <em>"<%= greeting.body %>"</em>
-    // 
-     <small>sent: <%= time_ago_in_words(greeting.created_at) %> ago.</small>
+    <div class="sender"><%=User.find_by(id: greeting.user_id).username %>: </div> 
+    <div class="greeting-body">"<%= greeting.body %>"</div>
+    <div class="timestamp"><%= time_ago_in_words(greeting.created_at) %> ago.</div>
   </li>
+</div>

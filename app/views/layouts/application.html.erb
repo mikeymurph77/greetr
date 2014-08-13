@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Greetr</title>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lobster|Raleway">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -10,14 +11,22 @@
 
 </head>
 <body>
+<div id="logo"><%= link_to "- Greetr -", root_path %></div>
 
-<% if signed_in? %>
-	<p>You are signed in as <%= current_user.username %>... <%= link_to "Sign Out", :session, method: :delete %></p>
-<% end %>
+<div id="flash">
+  <% if signed_in? %>
+  	<p>You are signed in as <%= current_user.username %>... <%= link_to "Sign Out", :session, method: :delete %></p>
+  <% end %>
 
-<%= render "flash_msg" %>
+  <%= render "flash_msg" %>
+</div>
 
 <%= yield %>
+
+<div class="footer">
+  <div class="credits">Created by Mike Murphy at Metis (Ruby on Rails Bootcamp)</div>
+  <div class="connect"><%= link_to "GitHub", "https://github.com/mikeymurph77" %> | <%= link_to "Twitter", "https://twitter.com/mikeymurph77" %> | <%= link_to "Blog", "http://mikeymurph.me/" %></div>
+</div>
 
 </body>
 </html>

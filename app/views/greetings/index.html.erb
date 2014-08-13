@@ -7,21 +7,23 @@
   });
 </script>
 
-<%=form_for :greeting, html:{id: "greeting_form"} do |form| %>
-  <div>
-    <%= form.label :body, "Write your greeting" %>
-    <%= form.text_field :body %>
+<div id="main">
+  <%= form_for :greeting, html:{id: "greeting_form"} do |form| %>
+    <div>
+      <%= form.label :body, "Write your greeting", class: "body-prompt" %>
+      <%= form.text_field :body %>
     </div>
     <div>
-      Send Greeting to: 
-      <%= form.collection_select :reciever_id, User.all, :id, :username %>
-  </div>
-  <div>
-    <%= form.submit "Send Greeting" %>
-  </div>
-<%end%>
+        Send Greeting to: 
+        <%= form.collection_select :reciever_id, User.all, :id, :username %>
+    </div>
+    <div>
+      <%= form.submit "Send Greeting" %>
+    </div>
+  <% end %>
 
-<h2>Greetings to you </h2>
-<ul id="greetings">
-  <%= render @greetings %>
-</ul>
+  <h2>Greetings to you </h2>
+  <ul class="greetings-container">
+    <%= render @greetings %>
+  </ul>
+</div>

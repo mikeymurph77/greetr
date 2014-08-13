@@ -1,0 +1,39 @@
+.greetings-container {
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 50px;
+}
+
+.greetings {
+  display: inline-block;
+  padding-bottom: 6px;
+  border-bottom: 1px dotted black;
+  width: 100%;
+}
+
+.sender {
+  display: block;
+  float: left;
+  font-weight: bold;
+  padding-right: 4px;
+}
+
+.greeting-body {
+  position: relative;
+  display: block;
+  float: left;
+  font-style: italic;
+  padding-right: 4px;
+}
+
+.timestamp {
+  position: relative;
+  display: inline-block;
+  float: right;
+  font-style: italic;
+  padding-right: 4px;
+  font-size: .7em;
+  color: #990000;
+}

@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     if sign_in(user)
       redirect_to :greetings
     else
-      flash[:error] = "Username and Password do not match...you suck"
+      flash[:error] = "Username and Password do not match...try again, or sign up"
       render :new
     end
   end
