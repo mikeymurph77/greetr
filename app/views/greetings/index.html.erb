@@ -9,21 +9,26 @@
 
 <div id="main">
   <%= form_for :greeting, html:{id: "greeting_form"} do |form| %>
-    <div>
-      <%= form.label :body, "Write your greeting", class: "body-prompt" %>
+    <div id="greeting-prompt">
+      <%= form.label :body, "Write your greeting" %>
       <%= form.text_field :body %>
     </div>
-    <div>
+    <div id="select-receiver">
         Send Greeting to: 
         <%= form.collection_select :reciever_id, User.all, :id, :username %>
     </div>
-    <div>
+    <div id="send-greeting">
       <%= form.submit "Send Greeting" %>
     </div>
   <% end %>
 
   <h2>Greetings to you </h2>
   <ul class="greetings-container">
-    <%= render @greetings %>
+    <% if @greetings.present? %>
+      <%= render @greetings %>
+    <% else %>
+      <h3>You have no greetings yet</h3>
+      <p id="encourage">Try sending a greeting first</p>
+    <% end %>
   </ul>
 </div>

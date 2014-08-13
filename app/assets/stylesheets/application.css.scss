@@ -4,56 +4,7 @@
 @import "base/grid-settings";
 @import "login";
 @import "greetings";
-
-body{
-  background-color: #E6E6E6;
-}
-
-#logo {
-  font-family: "Lobster";
-  font-size: 10em;
-  text-align: center;
-}
-
-#logo a {
-    color: #9B2B2B;
-    text-shadow: 3px 3px 8px black;
-}
-
-a {
-  color: #9B2B2B;
-}
-
-p {
-  font-family: "Raleway";
-}
-
-h2 {
-  font-family: "Lobster";
-  text-align: center;
-  padding-bottom: 10px;
-  padding-top: 10px;
-}
-
-.switch {
-  text-align: right;
-}
-
-#main {
-  margin-left: auto;
-  margin-right: auto;
-  width: 400px;
-}
-
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #C4C4C4;
-  color: black;
-  font-size: .8em;
-  text-align: center;
-}
+@import "main";
 
 .send-greeting {
   display: inline-block;
@@ -64,8 +15,14 @@ h2 {
   font-family: "Raleway";
 }
 
-.select-receiver {
+#select-receiver {
   position: relative;
-  display: inline-block;
+  display: inline;
+  float: left;
+}
+
+#send-greeting {
+  position: relative;
+  display: inline;
   float: right;
 }
