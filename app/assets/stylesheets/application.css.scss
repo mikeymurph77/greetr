@@ -1,0 +1,28 @@
+@import "bourbon";
+@import 'neat';
+@import "base/base";
+@import "base/grid-settings";
+@import "login";
+@import "greetings";
+@import "main";
+
+.send-greeting {
+  display: inline-block;
+  align-items: left;
+}
+
+.body-prompt {
+  font-family: "Raleway";
+}
+
+#select-receiver {
+  position: relative;
+  display: inline;
+  float: left;
+}
+
+#send-greeting {
+  position: relative;
+  display: inline;
+  float: right;
+}

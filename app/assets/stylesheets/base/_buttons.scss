@@ -1,0 +1,17 @@
+button,
+input[type="submit"] {
+  @extend %button;
+  @include appearance(none);
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  background-color: #9B2B2B;
+}
+
+button,
+input[type="submit"]:hover {
+    background-color: #8C2727;
+    color: white;
+}
